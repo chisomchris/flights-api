@@ -123,7 +123,6 @@ exports.deleteFlight = async (req, res, next) => {
         res.status(500).json({
             status: "failed",
             message: "Internal server error",
-            id,
         });
     }
 };
