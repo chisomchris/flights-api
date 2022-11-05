@@ -7,7 +7,8 @@ const {
 
 const {
     vString,
-    vNumber
+    vNumber,
+    vDateString
 } = require('./utility/validator')
 
 exports.getAllFlights = async (req, res, next) => {
@@ -49,7 +50,7 @@ exports.getSingleFlight = async (req, res, next) => {
 exports.addFlight = async (req, res, next) => {
     try {
         const flight = await req.body;
-        if (vString(flight.title) && vString(flight.time) && vString(flight.date) && vNumber(flight.price)) {
+        if (vString(flight.title) && vString(flight.time) && vDateString(flight.date) && vNumber(flight.price)) {
             flight.id = uuid();
             flights.push(flight);
             return res.status(200).json({
