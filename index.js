@@ -9,7 +9,7 @@ const flightRouter = require('./routes/flightsRoute')
 app.use('/flights', express.json(), flightRouter)
 
 app.get('/', (req, res, next) => {
-    res.send('welcome to flights api')
+    res.send('welcome ooo to flights api')
 })
 
 app.use((req, res, next) => {
