@@ -88,6 +88,12 @@ exports.updateFlight = async (req, res, next) => {
         updated.price = update.price ? update.price : flight.price;
         updated.date = update.date ? update.date : flight.date;
         updated.id = flight.id;
+        if (!(vString(updated.title) && vString(updated.time) && vDateString(updated.date) && vNumber(updated.price))) {
+        return res.status(400).json({
+            status: "failed",
+            message: "bad request",
+        })
+        }
         const index = flights.indexOf(flight);
         flights.splice(index, 1, updated);
         res.json({
